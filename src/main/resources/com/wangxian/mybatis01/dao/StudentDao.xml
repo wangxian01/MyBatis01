@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangxian.mybatis01.dao.StudentDao">
+    <!--查找所有学生信息-->
+    <select id="findAllStudent" resultType="com.wangxian.mybatis01.entity.Student">
+        select * from student
+    </select>
+    <!--新增学生信息-->
+    <insert id="SaveStudent" parameterType="com.wangxian.mybatis01.entity.Student">
+        insert into student(name,age,sex,address)values (#{name},#{age},#{sex},#{address});
+    </insert>
+    <!--根据id修改学生信息-->
+    <update id="updateStudent" parameterType="com.wangxian.mybatis01.entity.Student">
+        update student set name=#{name},age=#{age},sex=#{sex},address=#{address} where id=#{id}
+    </update>
+    <!--根据id删除学生信息-->
+    <delete id="deleteStudent" parameterType="java.lang.Integer">
+        delete from student where id=#{uid}
+    </delete>
+</mapper>
